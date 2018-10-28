@@ -1,0 +1,59 @@
+<div class="container-fluid" ng-show="!show">
+    <div class="heading-empty">
+        <h3>Your Cart is Empty!</h3>
+        <img src="/images/cart.png" class="img-responsive">
+    </div>
+    <div>
+    </div>
+</div>
+
+<div class="container-fluid" ng-show="show">
+    <div class="heading">
+        <h3>Items In My Cart</h3>
+    </div>
+    <div class="icons">
+        <img src="/images/save.png" data-toggle="tooltip" title="Save Cart" ng-click="save()">
+        <img src="/images/flush.jpeg" data-toggle="tooltip" title="Empty CART" ng-click="flush()">
+        <a href="#!/payment"><img src="/images/payment.jpg" data-toggle="tooltip" title="Proceed to Checkout"></a>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 cart-items" ng-repeat="items in itemsincart">
+            <div class="row">
+                <div class="col-md-4 col-sm-8 col-xs-4">
+                    <img class="img-responsive" src="{{items[3]}}">
+                </div>
+                <div class="col-md-7 col-sm-7 col-xs-7">
+                    <div class="price">
+                        Original Amount: <span> &#8377 {{items[4] * items[2] }}</span><br>
+                        <span>Discounted Amount: &#8377 {{items[5] * items[2] }}</span><br>
+                        <span>You Save: &#8377 {{items[4] * items[2] - items[5] * items[2]}}</span>
+                    </div>
+                    <div class="picker">
+                        <span>Quantity:</span>
+                        <button class="btn" ng-click="minus(this)">-</button>
+                        <input type="text" disabled value="{{items[2]}}" min="1">
+                        <button class="btn" ng-click="plus(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                {{message}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default button-yes" ng-click="removeitem()" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-alert button-no" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

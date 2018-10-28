@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+
+<head>
+    <title>Dashboard</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="/css/frameworks/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="/js/frameworks/jquery.min.js"></script>
+
+    <!-- Counter JS Api -->
+    <script src="/js/frameworks/jquery.counter.min.js"></script>
+    <script src="/js/frameworks/waypoint.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="/js/frameworks/bootstrap.min.js"></script>
+
+    <!-- Google Font CDN -->
+    <link href="/css/frameworks/font.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/custom/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom/offer.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom/profile.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom/cart.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom/payment.css">
+    <link rel="stylesheet" type="text/css" href="/css/custom/redeem.css">
+
+    <!-- AngularJS CDN  -->
+    <script src="/js/frameworks/angular.min.js"></script>
+
+    <!-- AngularJS Route CDN -->
+    <script src="/js/frameworks/angular-route.js"></script>
+
+    <!-- Angular Slick Carousel JS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js"></script>
+    <script src="/js/frameworks/angular-slick.js"></script>
+
+    <!-- Google Map Api -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAi28kYOVH4QWAD01-sugyU3ug7QrYANoA&sensor=false"></script>
+    
+
+    <!--FB API  -->
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId            : '356860308217736',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+    <!-- Custom JS -->
+    <script src="/js/custom/main.js"></script>
+    <script src="/directives/filemodel.js"></script>
+    <script src="/services/apiservices.js"></script>
+    <script src="/services/cart.js"></script>
+    <script src="/services/data.js"></script>
+    <script src="/js/custom/offers.js"></script>
+    <script src="/js/custom/cartcontroller.js"></script>
+    <script src="/js/custom/payment.js"></script>
+    <script src="/js/custom/profile.js"></script>
+    <script src="/js/custom/redeem.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <nav class="nav navbar-default navbar-fixed-top">
+
+
+            <div class="container-fluid">
+
+                <div class="navbar-brand nav-options mycart">
+                    <a onclick="logout()" class="btn">
+                        <span>Logout</span>
+                    </a>
+                </div>
+                <div class="navbar-brand nav-options mycart">
+                    <a href="#!/profile" class="btn">
+                        <span>My Profile</span>
+                    </a>
+                </div>
+                <div class="navbar-brand nav-options mycart">
+                    <a href="#!/redeem" class="btn">
+                        <span>Redeem</span>
+                    </a>
+                </div>
+                <div class="navbar-brand nav-options mycart">
+                    <a href="#!/cart" class="btn">
+                        <span>My Cart</span>
+                    </a>
+                </div>
+                <div class="navbar-brand nav-options mycart">
+                    <a href="#!/" class="btn">
+                        <span>My Offers</span>
+                    </a>
+                </div>
+                <p class="msg">Welcome,
+                    <%=user %>
+                </p>
+        </nav>
+        </div>
+
+
+        <section class="content">
+            <div ng-view></div>
+        </section>
+
+
+        <div class="modal fade" id="main" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-intro ">
+                    <div class="modal-body">
+                        <h4 class="modal-title" id="myModalLabel">Welcome ,
+                            <%=user %>
+                        </h4>
+                        <h5>Thank You For Choosing our Products.</h5>
+                        <button type="button" class="btn button-intro" data-dismiss="modal">Lets Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="uid" style="display:none">
+            <%=uid %>
+        </div>
+        <div id="cart" style="display:none">
+            <%=cart %>
+        </div>
+
+        <script>
+            var uid = document.getElementById('uid').innerHTML.trim()
+            var cart = document.getElementById('cart').innerHTML.trim()
+
+            sessionStorage.setItem("uid", uid);
+
+            if (cart != "0") {
+                sessionStorage.setItem("cart", cart);
+            }
+
+            var logout = function(){
+                sessionStorage.clear()                
+                window.location = "/logout"
+            }
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+.bonus-data{
+	padding: 10px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.bonus-value
+{
+font-size: 30px;
+margin: 0px 60px 0px 60px;
+}
+
+.redeem-slides{
+	padding: 25px;
+}
+
+.redeem span{
+	margin-left: 50px;
+	font-weight: bold;
+}
+
+.slides-redeem{
+	cursor:pointer;
+}
+
+.redeem img{
+	padding: 10px 0px 0px 0px;
+}

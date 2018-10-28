@@ -1,0 +1,73 @@
+<div class="container">
+	<div class="row">
+		<div
+		 class="col-sm-12 col-md-12 col-lg-12">
+			<div class="redeem-slides">
+			<slick class="slides-redeem" slides-to-show="5" slides-to-scroll="1" autoplay="false" dots="true" responsive="breakpoints">
+
+                <div class="container redeem" ng-repeat="slide in slides">
+                    <div>
+	                    <span>300 points</span>
+                    </div>
+                    <img src="{{slide.url}}" data-toggle="modal" data-target="#myModal" ng-click="modal(this.slide)" >
+                </div>
+            </slick>
+        	</div>
+		</div>
+	</div>	
+
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    {{data.name}}
+                </h2>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 modal-image">
+                        <img src="{{data.url}}">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="price1">
+                            Original Price : &#8377 <span>{{data.price * qtn}} </span>
+                        </div>
+                        <div class="price2">
+                            Our Price : &#8377 {{data.discounted * qtn}}
+                        </div>
+                        <div class="price3">
+                            You Save : &#8377 {{ data.price*qtn - data.discounted*qtn }}
+                        </div>
+                        <div class="quantity row">
+                            <div class="col-xs-2 col-lg-3 col-sm-3 col-md-3 qtn">
+                                Quantity:
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-sm-4 col-md-4">
+                                <select class="form-control" ng-model="qtn">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <li ng-repeat="detail in data.details track by $index">
+                                {{detail}}
+                            </li>
+                            <li>
+                            	<b>Redeem Loyalty Points Required</b> = 300
+                            </li>
+
+                        </div>
+                        <div class="button">
+                            <button class="btn btn-lg" ng-click="add_redeem(data)" data-dismiss="modal"><span class="glyphicon glyphicon-shopping-cart"></span>Redeem</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

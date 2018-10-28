@@ -1,0 +1,83 @@
+html,body{
+	height: 100%;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+.nav-options{
+	float: right;
+	text-transform: capitalize;
+}
+
+.nav-options span{
+	color: white;
+}
+
+.nav{
+	background-color: #191919!important;
+}
+
+.menu{
+	display: none;
+}
+
+.mycart:hover{
+	color:white!important;
+	cursor: pointer ;
+	fill:white!important;
+}
+
+.btn{
+	color: white;
+	padding: 0px;
+	font-size: 16px
+}
+
+.mycart .btn:hover{
+	color:white!important;
+	background-color: none!important;
+	fill:white!important;
+
+}
+
+.mycart .btn{
+	fill:none!important;
+}
+
+a:focus, a:hover {
+     color:none!important;
+     text-decoration: none!important;
+}
+
+.msg{
+	color: white;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.header{
+	height: 9.5%
+}
+
+.content{
+	height: 90.5%
+}
+
+
+.slick-slide {
+    outline: none !important;
+}
+
+.button-intro{
+	float: right;
+	background-color: black;
+}
+
+.modal-intro{
+	height: 120px;
+	border-radius: 5px!important;
+	background-color: white;
+}
+
+.modal-intro h5{
+	margin-left: 25px
+}

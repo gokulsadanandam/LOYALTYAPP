@@ -1,0 +1,96 @@
+<div class="container" id="main">
+    <div class="row first">
+        <h3>Best Offers Only For You</h3>
+        <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+            <slick slides-to-show="6" slides-to-scroll="1" autoplay="true" dots="true" responsive="breakpoints">
+
+                <div class="container slides" ng-repeat="slide in slides">
+                    <div class="info" ng-click="modal(this.slide)" data-toggle="modal" data-target="#myModal">
+                        <span>{{slide.titlecard}}</span>
+                        <img src="/images/info.png">
+                    </div>
+                    <img src="{{slide.url}}" ng-click="modal(this.slide)" data-toggle="modal" data-target="#myModal">
+                </div>
+            </slick>
+        </div>
+    </div>
+    <div class="row second">
+        <h3>Offers Exclusively For You </h3>
+        <div class="col-sm-6 col-xs-6 col-lg-3 col-md-3" ng-repeat="imgs in images">
+            <div class="info" ng-click="modal(this.slide)" data-toggle="modal" data-target="#myModal">
+                <span>{{imgs.titlecard}}</span>
+                <img src="/images/info.png">
+            </div>
+            <img src="{{imgs.url}}" ng-click="modal(this.imgs)" data-toggle="modal" data-target="#myModal">
+        </div>
+    </div>
+
+    <div class="row third">
+        <h3>Top Deals in Mobiles</h3>
+        <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+            <slick slides-to-show="6" slides-to-scroll="1" autoplay="true" dots="true" responsive="breakpoints">
+
+                <div class="container slides" ng-repeat="slide in phones">
+                    <div class="info" ng-click="modal(this.slide)" data-toggle="modal" data-target="#myModal">
+                        <span>{{slide.titlecard}}</span>
+                        <img src="/images/info.png">
+                    </div>
+                    <img class="phones" src="{{slide.url}}" ng-click="modal(this.slide)" data-toggle="modal" data-target="#myModal">
+                </div>
+            </slick>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    {{data.name}}
+                </h2>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 modal-image">
+                        <img src="{{data.url}}">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="price1">
+                            Original Price : &#8377 <span>{{data.price * qtn}} </span>
+                        </div>
+                        <div class="price2">
+                            Our Price : &#8377 {{data.discounted * qtn}}
+                        </div>
+                        <div class="price3">
+                            You Save : &#8377 {{ data.price*qtn - data.discounted*qtn }}
+                        </div>
+                        <div class="quantity row">
+                            <div class="col-xs-2 col-lg-3 col-sm-3 col-md-3 qtn">
+                                Quantity:
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-sm-4 col-md-4">
+                                <select class="form-control" ng-model="qtn">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <li ng-repeat="detail in data.details track by $index">
+                                {{detail}}
+                            </li>
+                        </div>
+                        <div class="button">
+                            <button class="btn btn-lg" ng-click="add(data)" data-dismiss="modal"><span class="glyphicon glyphicon-shopping-cart"></span>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

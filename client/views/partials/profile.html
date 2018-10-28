@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="row photoholder">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="tile">
+                <h3>YOUR PROFILE PICTURE</h3>
+                <div class="upload" id="uploadmain" file-model="File">
+                    <img ng-src={{userimagesrc}} id="img">
+                    <input type="file" class="ng-hide" id="file">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="heading tile">
+                <h3>USER INFORMATION</h3>
+                <div class="user-bio">
+                    <ul>
+                        <li>User-Name: <span>{{name}}</span></li>
+                        <li>User-Email:<span>{{email}}</span></li>
+                        <li> Contact: <span>{{contact}}</span></li>
+                        <li>User-Since: <span>{{time}}</span></li>
+                        <li>Loyalty-ID:<span>{{loyaltyid}}</span></li>
+                        <li>Loyalty-Bonus:<span class="counter">{{userpoints}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+ 	</div>
+ </div>
+ <div class="container">
+ 	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="tile-table" style="overflow: auto;">
+                <h3>YOUR ORDER HISTORY</h3>
+                <table class="table table-striped" ng-show="orders.length">
+					<thead>
+						<th>Item Name</th>
+						<th>Quantity</th>
+						<th>Original Price</th>
+						<th>Discounted Price</th>
+                        <th>Your Savings</th>
+                        <th>Loyalty Points</th>
+                        <!-- <th>Loyalty Save</th> -->
+						<!-- <th>Total Amount Saved </th> -->
+					</thead>
+					<tbody>
+						<tr ng-repeat="order in orders">
+							<td>{{order[0]}}</td>
+							<td>{{order[2]}}</td>
+							<td>{{order[4]}}</td>
+							<td>{{order[5]}}</td>
+                            <td>{{order[4] - order[5]}}</td>
+                            <td>{{order[5]*0.1}}</td>
+                            <!-- <td>{{order[2]*10}}</td> -->
+							<!-- <td>{{order[4] - order[5] + 10*order[2]}}</td> -->
+                        </tr>
+
+					</tbody>
+                </table>
+                <h1 ng-show="!orders.length">Place Your First Order :)</h1>
+                <a href="#!/offers"><button class="btn button button-order-now" ng-show="!orders.length">Order Now</button></a>
+            </div>
+        </div>
+    </div>
+</div>

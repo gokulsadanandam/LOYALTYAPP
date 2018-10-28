@@ -1,0 +1,105 @@
+
+ .carousel-holder{
+     padding: 10px;
+     margin-top: 15px;
+}
+ .plus{
+     background-color: red 
+}
+ .info img{
+     float:right;
+     width: 18px;
+}
+ .plus span{
+     float: right;
+}
+ .second:hover,.plus span:hover{
+     cursor: pointer;
+}
+ .slides{
+     border-style: none;
+}
+ .slides:hover{
+     cursor: pointer;
+}
+ .modal-image{
+     text-align: center;
+}
+ .modal-image img{
+     width: 150px;
+     height: 250px;
+}
+ .modal-content{
+     border-radius: 0px!important;
+}
+ .modal-header{
+     text-transform: uppercase;
+     text-align: center;
+}
+ .qtn,.price1,.price2,.price3{
+     font-weight: bolder;
+     font-size: 18px;
+     font-weight: 400;
+}
+ .price1 span{
+     text-decoration: line-through;
+}
+ .details{
+     padding:10px;
+}
+ .button{
+     text-align: center;
+}
+ .button .btn{
+     padding: 8px;
+     border-radius: 0px;
+     font-size: 17px;
+     background-color:black;
+     color:white;
+}
+ .qtn{
+     padding-top: 5px;
+}
+ .second{
+     text-align: center;
+     padding: 20px;
+}
+ .second h3{
+     text-align: left;
+     padding: 10px;
+}
+ .second img{
+     width: 150px;
+     height: 250px 
+}
+ .second .info{
+     padding: 10px;
+}
+ .second .info span{
+     padding: 15px;
+     text-transform: uppercase;
+}
+ .second .info img{
+     float:right;
+     width: 18px;
+     height: 18px;
+}
+ .third{
+     padding: 20px;
+     margin-top: 10px;
+}
+ .phones{
+     width: 150px;
+     height: 250px;
+}
+ .slides{
+     text-align: center;
+}
+ .slides span{
+     padding: 15px;
+     text-transform: uppercase;
+}
+ .first h3,.third h3{
+     padding: 15px;
+     margin:0px;
+}
